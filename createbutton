@@ -1,0 +1,45 @@
+import 'package:flutter/material.dart';
+
+//main 생성, void 사용
+void main(){
+  runApp(MyApp());
+
+}
+
+class MyApp extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState(){
+    return _MyApp();
+  }
+}
+
+class _MyApp extends State<MyApp>{
+  var text_1 = 'flutter';
+  @override
+  Widget build(BuildContext Context){
+    return MaterialApp(
+      title: 'ex',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,),
+      home: Scaffold(
+        body: Center(
+         child: RaisedButton(
+          child: Text('$text_1'),
+          onPressed: (){
+            if (text_1 == 'flutter'){
+              setState((){
+                text_1 = 'hello';
+              });
+            }else{
+              setState((){
+                text_1 ='flutter';
+              });        
+            } 
+          }
+        )
+      )
+    ),
+   );
+  }
+}
